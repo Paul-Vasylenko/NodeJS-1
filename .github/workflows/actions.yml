@@ -15,8 +15,6 @@ jobs:
         node-version: 16
     - name: Install dependencies ✔️
       run: npm ci
-    - name: Build project ✔️
-      run: npm run build
     - name: Run eslint 🐱‍💻
       run: npm run lint:check 
     - name: Run prettier 🐱‍💻
