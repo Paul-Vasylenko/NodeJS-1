@@ -1,0 +1,13 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": ["plugin:@typescript-eslint/recommended", "metarhia", "airbnb-base", "airbnb-typescript/base", "plugin:sonarjs/recommended"],
+  "plugins": ["sonarjs"],
+  "parserOptions": {
+    "ecmaVersion": 2016,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "no-console": "off"
+  }
+}
