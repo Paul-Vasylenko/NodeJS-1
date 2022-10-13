@@ -1,0 +1,24 @@
+name: Linting
+
+on:
+  pull_request:
+    branches: [ "deploy" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: Install dependencies ✔️
+      run: npm ci
+    - name: Build project ✔️
+      run: npm run build
+    - name: Run eslint 🐱‍💻
+      run: npm run lint:check 
+    - name: Run prettier 🐱‍💻
+      run: npm run format:check 
