@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",                       /* Specify how TypeScript looks up a file from a given module specifier. */
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "outDir": "lib",

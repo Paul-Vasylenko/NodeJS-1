@@ -7,7 +7,9 @@ admin.initializeApp();
 // // https://firebase.google.com/docs/functions/typescript
 //
 
-export default functions.https.onRequest((req, res) => {
+export const helloWorld = functions.https.onRequest((req, res) => {
+  functions.logger.log('Testing firebase logger here');
+
   res.json({
     message: 'Successful!',
     cookies: req.cookies,

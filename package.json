@@ -4,8 +4,9 @@
   "description": "Hello!",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon",
-    "start": "npm run build && node build/index.js",
+    "start:dev": "npm run serve --prefix ./functions/",
+    "start": "npm run start --prefix ./functions/",
+    "deploy": "npm run deploy --prefix ./functions/",
     "lint:check": "eslint functions/**/*.ts",
     "lint:fix": "eslint functions/**/*.ts --fix",
     "format:check": "prettier functions/**/*.ts --check",

@@ -3,12 +3,16 @@
     "extends": ["plugin:@typescript-eslint/recommended", "metarhia", "plugin:sonarjs/recommended", "airbnb-typescript/base"],
     "plugins": ["sonarjs"],
     "parserOptions": {
-        "ecmaVersion": 2016,
+        "ecmaVersion": "latest",
         "sourceType": "module",
         "project": "./tsconfig.json"
       },
     "rules": {
         "no-console": "off"
+    },
+    "env": {
+        "node": true,
+        "es2022": true
     },
     "root": true
 }
