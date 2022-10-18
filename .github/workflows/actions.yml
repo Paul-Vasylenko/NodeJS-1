@@ -21,14 +21,17 @@ jobs:
     - name: Run prettier 🐱‍💻
       run: npm run format:check
   
-  deploy:
+  deploy_functions:
     needs: linting
     # Steps represent a sequence of tasks that will be executed as part of the job
     runs-on: ubuntu-latest
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        cache: npm
     # Runs a single command using the runners shell
     # And of course we need to goto our functions folder to deploy
     - name: Install npm packages
@@ -42,12 +45,16 @@ jobs:
       env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
   
-  build_and_preview:
+  deploy_hosting:
     needs: linting
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
       - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
