@@ -8,12 +8,12 @@ admin.initializeApp();
 //
 
 export const helloWorld = functions.https.onRequest((req, res) => {
-  functions.logger.log('Testing firebase logger here');
+	functions.logger.log('Testing firebase logger here');
 
-  res.json({
-    message: 'Successful!',
-    cookies: req.cookies,
-    body: req.body,
-    query: req.query,
-  });
+	res.json({
+		message: 'Successful!',
+		cookies: req.cookies,
+		body: req.body,
+		query: req.query,
+	});
 });
