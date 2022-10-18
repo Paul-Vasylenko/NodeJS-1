@@ -10,7 +10,7 @@ plugins:
 parserOptions:
   ecmaVersion: latest
   sourceType: module
-  project: "./tsconfig.json"
+  project: "./functions/tsconfig.json"
 rules:
   no-console: 'off'
   import/prefer-default-export: 0

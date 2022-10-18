@@ -12,7 +12,7 @@
     "lint:fix": "eslint ./**/*.ts --fix --ignore-path .gitignore",
     "format:check": "prettier ./**/*.ts --check --ignore-path .gitignore",
     "format:fix": "prettier ./**/*.ts --write --ignore-path .gitignore",
-    "install": "husky install"
+    "prepare": "husky install"
   },
   "type": "module",
   "repository": {
