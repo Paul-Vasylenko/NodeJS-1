@@ -25,10 +25,6 @@
       {
         "source": "/hello",
         "function": "helloWorld"
-      },
-      {
-        "source": "**",
-        "destination": "404.html"
       }
     ]
   }
