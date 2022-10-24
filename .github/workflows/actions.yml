@@ -55,8 +55,12 @@ jobs:
         with:
           node-version: 16
           cache: npm
-      - run: cd functions & npm ci
-      -	run: npm run build
+			- name: Install dependencies ✔️
+				run: |
+					cd functions
+					npm ci
+			- name: Build
+      	run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
