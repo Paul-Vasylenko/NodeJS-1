@@ -7,7 +7,7 @@
     "start:dev": "npm run serve --prefix ./functions/",
     "start": "npm run start --prefix ./functions/",
     "deploy": "npm run deploy --prefix ./functions/",
-    "build": "npm ci --prefix ./functions/ && npm run build --prefix ./functions/",
+    "build": "npm run build --prefix ./functions/",
     "lint:check": "eslint ./**/*.ts --ignore-path .gitignore",
     "lint:fix": "eslint ./**/*.ts --fix --ignore-path .gitignore",
     "format:check": "prettier ./**/*.ts --check --ignore-path .gitignore",
