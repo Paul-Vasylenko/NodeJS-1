@@ -56,8 +56,8 @@ jobs:
           node-version: 16
           cache: npm
       - name: Install dependencies ✔️
-        run: cd functions & npm ci
-      - name: Build dfsd
+        run: npm ci --prefix functions/
+      - name: Build 
         run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
