@@ -42,7 +42,7 @@ jobs:
         key: modules-${{ hashFiles('package-lock.json') }}
     - name: Install dependencies
       if: steps.cache.outputs.cache-hit != 'true'
-      run: npm ci
+      run: npm ci --prefix functions/
     - name:  Deploy to Firebase
       uses: w9jds/firebase-action@master
       with:
