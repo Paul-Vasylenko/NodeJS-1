@@ -34,15 +34,15 @@ jobs:
         cache: npm
     # Runs a single command using the runners shell
     # And of course we need to goto our functions folder to deploy
-		- name: Cache dependencies
-			id: cache
-			uses: actions/cache@v3
-			with:
-				path: ./functions/node_modules
-				key: modules-${{ hashFiles('package-lock.json') }}
-		- name: Install dependencies
-			if: steps.cache.outputs.cache-hit != 'true'
-			run: npm ci
+    - name: Cache dependencies
+      id: cache
+      uses: actions/cache@v3
+      with:
+        path: ./functions/node_modules
+        key: modules-${{ hashFiles('package-lock.json') }}
+    - name: Install dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm ci
     - name:  Deploy to Firebase
       uses: w9jds/firebase-action@master
       with:
