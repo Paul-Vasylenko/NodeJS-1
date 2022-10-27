@@ -5,7 +5,7 @@ import { Request, Response } from 'firebase-functions';
 // // https://firebase.google.com/docs/functions/typescript
 //
 
-export const helloWorld = functions.https.onRequest((req: Request, res: Response) => {
+export const hello = functions.https.onRequest((req: Request, res: Response) => {
 	functions.logger.log('Testing firebase logger here');
 
 	res.json({

@@ -24,7 +24,7 @@
     "rewrites" : [
       {
         "source": "/hello",
-        "function": "helloWorld"
+        "function": "hello"
       }
     ]
   }
