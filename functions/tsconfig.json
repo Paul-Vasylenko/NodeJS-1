@@ -15,11 +15,10 @@
     "target": "ESNext",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
-
 	},
   "compileOnSave": true,
   "include": [
     "src",
-		".eslintrc.js"
+		".eslintrc.cjs"
   ]
 }

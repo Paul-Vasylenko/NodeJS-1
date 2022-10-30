@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "npm run serve --prefix ./functions/",
     "start": "npm run start --prefix ./functions/",
-    "deploy": "npm run deploy --prefix ./functions/  && firebase deploy --only hosting",
+    "deploy": "firebase deploy",
     "build": "npm run --workspaces --if-present build",
     "lint:check": "npm run --workspaces --if-present lint:check",
     "lint:fix": "npm run --workspaces --if-present lint:fix",
@@ -30,7 +30,8 @@
     "@types/node": "^18.8.5",
     "husky": "^8.0.1",
     "prettier": "^2.7.1",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+		"firebase-tools": "^11.15.0"
   },
   "workspaces": [
     "functions",

@@ -45,34 +45,34 @@ jobs:
       id: cache
       uses: actions/cache@v3
       with:
-        path: ./functions/node_modules
+        path: ./node_modules
         key: modules-${{ hashFiles('package-lock.json') }}
     - name: Install dependencies
       if: steps.cache.outputs.cache-hit != 'true'
-      run: npm ci --prefix functions/
+      run: npm ci
     - name:  Deploy to Firebase
       uses: w9jds/firebase-action@master
       with:
-          args: deploy --only functions
+          args: deploy
       env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
-  deploy_hosting:
-    needs: linting
-    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: npm
-      - name: Install dependencies ✔️
-        run: npm ci --prefix functions/
-      - name: Build
-        run: npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NODE_JS_1_46DFC }}'
-          projectId: node-js-1-46dfc
+  # deploy_hosting:
+  #   needs: linting
+  #   if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
+  #         cache: npm
+  #     - name: Install dependencies ✔️
+  #       run: npm ci --prefix functions/
+  #     - name: Build
+  #       run: npm run build
+  #     - uses: FirebaseExtended/action-hosting-deploy@v0
+  #       with:
+  #         repoToken: '${{ secrets.GITHUB_TOKEN }}'
+  #         firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NODE_JS_1_46DFC }}'
+  #         projectId: node-js-1-46dfc

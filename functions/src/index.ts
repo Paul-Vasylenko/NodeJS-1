@@ -9,7 +9,7 @@ export const hello = functions.https.onRequest((req: Request, res: Response) => 
 	functions.logger.log('Testing firebase logger here');
 
 	res.json({
-		message: '11111 !',
+		message: '2222222 !',
 		cookies: req.cookies,
 		body: req.body,
 		query: req.query,
