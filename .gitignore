@@ -1,2 +1,5 @@
 node_modules
-functions/
+# firebase cache
+.firebase
+firebase-debug.log
+
