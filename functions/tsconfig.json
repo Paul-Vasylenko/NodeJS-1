@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",                       /* Specify how TypeScript looks up a file from a given module specifier. */
+    "module": "ESNext",
+    "moduleResolution": "Node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
     "noImplicitReturns": true,
     "noUnusedLocals": true,
 		"esModuleInterop": true,
@@ -11,11 +11,15 @@
     "outDir": "lib",
     "sourceMap": true,
     "strict": true,
-    "lib": ["es6"],                                      /* Specify a set of bundled library declaration files that describe the target runtime environment. */
-    "target": "ES2022"                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-  },
+    "lib": ["ESNext"],                                      /* Specify a set of bundled library declaration files that describe the target runtime environment. */
+    "target": "ESNext",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+
+	},
   "compileOnSave": true,
   "include": [
-    "src"
+    "src",
+		".eslintrc.js"
   ]
 }

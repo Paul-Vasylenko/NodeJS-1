@@ -7,11 +7,11 @@
     "start:dev": "npm run serve --prefix ./functions/",
     "start": "npm run start --prefix ./functions/",
     "deploy": "npm run deploy --prefix ./functions/  && firebase deploy --only hosting",
-    "build": "npm run build --prefix ./functions/",
-    "lint:check": "eslint ./**/*.ts --ignore-path .gitignore",
-    "lint:fix": "eslint ./**/*.ts --fix --ignore-path .gitignore",
-    "format:check": "prettier ./**/*.ts --check --ignore-path .gitignore",
-    "format:fix": "prettier ./**/*.ts --write --ignore-path .gitignore",
+    "build": "npm run --workspaces --if-present build",
+    "lint:check": "npm run --workspaces --if-present lint:check",
+    "lint:fix": "npm run --workspaces --if-present lint:fix",
+    "format:check": "npm run --workspaces --if-present format:check",
+    "format:fix": "npm run --workspaces --if-present format:fix",
     "prepare": "husky install"
   },
   "type": "module",
@@ -28,19 +28,12 @@
   "homepage": "https://github.com/Paul-Vasylenko/NodeJS-1#readme",
   "devDependencies": {
     "@types/node": "^18.8.5",
-    "@typescript-eslint/eslint-plugin": "^5.40.0",
-    "@typescript-eslint/parser": "^5.40.0",
-    "eslint": "^8.25.0",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-config-metarhia": "^8.1.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-sonarjs": "^0.16.0",
     "husky": "^8.0.1",
-    "nodemon": "^2.0.20",
     "prettier": "^2.7.1",
-    "rimraf": "^3.0.2",
-    "ts-node": "^10.9.1",
     "typescript": "^4.8.4"
-  }
+  },
+  "workspaces": [
+    "functions",
+    "packages/*"
+  ]
 }
