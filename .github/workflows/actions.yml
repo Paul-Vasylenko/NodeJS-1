@@ -1,4 +1,4 @@
-name: Linting
+name: Linting and deploy
 
 on:
   pull_request:
@@ -30,7 +30,7 @@ jobs:
     - name: Run prettier 🐱‍💻
       run: npm run format:check
 
-  deploy_functions:
+  deploy:
     needs: linting
     # Steps represent a sequence of tasks that will be executed as part of the job
     runs-on: ubuntu-latest
@@ -53,8 +53,6 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: npm ci
     - name:  Deploy to Firebase
-      uses: w9jds/firebase-action@master
-      with:
-          args: deploy
+      run: npm run deploy
       env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

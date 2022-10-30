@@ -1,12 +1,11 @@
-import * as functions from 'firebase-functions';
-import { Request, Response } from 'firebase-functions';
+import { Request, Response, https, logger } from 'firebase-functions';
 
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 //
 
-export const hello = functions.https.onRequest((req: Request, res: Response) => {
-	functions.logger.log('Testing firebase logger here');
+export const hello = https.onRequest((req: Request, res: Response) => {
+	logger.log('Testing firebase logger here');
 
 	res.json({
 		message: 'test auto deploy !',
